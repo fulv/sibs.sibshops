@@ -5,12 +5,17 @@ Added the following line to develop.cfg under [sources]:
 sibs.sibshops = git https://github.com/fulv/sibs.sibshops.git
 
 
-
 From now on, the buildout must be run specifying this file explicitly:
 
 bin/buildout -c develop.cfg
 
 If you forget the "-c develop.cfg" part, the site will not start.
+
+
+
+For some reason, I had to add 'six' to the list of eggs in buildout.cfg.
+There is an 'import six' in z3c.form.  I'm not sure why this was not
+required before.
 
 
 
