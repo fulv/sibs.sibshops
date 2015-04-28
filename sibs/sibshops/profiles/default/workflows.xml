@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="sibs_sibshop_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="sibs.sibshops.sibshop">
+   <bound-workflow workflow_id="sibs_sibshop_workflow"/>
+  </type>
+ </bindings>
+</object>

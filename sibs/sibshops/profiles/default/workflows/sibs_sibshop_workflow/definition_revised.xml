@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="sibs_sibshop_workflow" title="Sibshop Review" description="This is used for the sibshop tool" state_variable="review_state" initial_state="Private" manager_bypass="False">
+ <permission>Access contents information</permission>
+ <permission>Modify portal content</permission>
+ <permission>Reply to item</permission>
+ <permission>View</permission>
+ 
+ <state state_id="Published" title="Published">
+  <description>This sibshop has been published</description>
+  <exit-transition transition_id="retract"/>
+ </state>
+ 
+ <state state_id="Private" title="Private">
+  <exit-transition transition_id="submit"/>
+ </state>
+ 
+ <state state_id="Rejected" title="Rejected">
+  <description>This class has been rejected and is no longer under consideration</description>
+  <exit-transition transition_id="activate"/>
+ </state>
+ 
+ <state state_id="Pending" title="Pending Review">
+  <description>Waiting for board review</description>
+  <exit-transition transition_id="return"/>
+  <exit-transition transition_id="reject"/>
+  <exit-transition transition_id="publish"/>
+  <exit-transition transition_id="withdraw"/>
+ </state>
+ 
+<transition transition_id="publish" title="publish" new_state="Published" trigger="USER" before_script="" after_script="">
+  <description>The board approves the proposed sibshop.  this makes it visible to all campers</description>
+  <action url="" category="workflow" icon="">Publish</action>
+  <guard>
+   <guard-permission>sibs.sibshops: Review sibshop</guard-permission>
+  </guard>
+ </transition>
+ 
+<transition transition_id="reject" title="reject" new_state="Rejected" trigger="USER" before_script="" after_script="">
+  <description>The board rejects this proposed sibshop.  It is removed from consideration</description>
+  <action url="" category="workflow" icon="">Reject</action>
+  <guard>
+   <guard-permission>sibs.sibshops: Review sibshop</guard-permission>
+  </guard>
+ </transition>
+ 
+<transition transition_id="retract" title="retract" new_state="Pending" trigger="USER" before_script="" after_script="">
+  <description>Allows owner to retract their content while in the 'Published' state</description>
+  <action url="" category="workflow" icon="">Retract</action>
+  <guard>
+   <guard-role>Owner</guard-role>
+  </guard>
+ </transition>
+ 
+<transition transition_id="return" title="return" new_state="Private" trigger="USER" before_script="" after_script="">
+  <description>The board returns content to owner with comments.  This is not rejection, the board wants more info or some changes</description>
+  <action url="" category="workflow" icon="">Return</action>
+  <guard>
+   <guard-permission>sibs.sibshops: Review sibshop</guard-permission>
+  </guard>
+ </transition>
+ 
+<transition transition_id="submit" title="submit for Approval" new_state="Submitted" trigger="USER" before_script="" after_script="">
+  <description>When camper done creating proposed sibshop, submits to Seabeck board for approval</description>
+  <action url="" category="workflow" icon="">Submit</action>
+  <guard>
+   <guard-role>Owner</guard-role>
+  </guard>
+ </transition>
+ 
+<transition transition_id="withdraw" title="withdraw" new_state="Private" trigger="USER" before_script="" after_script="">
+  <description>this allows the board to withdraw a content from a final state.</description>
+  <action url="" category="workflow" icon="">withdraw</action>
+  <guard>
+   <guard-permission>Owner</guard-permission>
+  </guard>
+ </transition>
+ 
+<transition transition_id="activate" title="activate" new_state="Pending" trigger="USER" before_script="" after_script="">
+  <description>this allows the board to withdraw a content from rejected state.</description>
+  <action url="" category="workflow" icon="">activate</action>
+  <guard>
+   <guard-permission>sibs.sibshops: Review sibshop</guard-permission>
+  </guard>
+ </transition>
+
+<variable variable_id="action" for_catalog="False" for_status="True" update_always="True">
+  <description>Previous transition</description>
+  <default>
+   
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False" for_status="True" update_always="True">
+  <description>The ID of the user who performed the previous transition</description>
+  <default>
+   
+   <expression>user/getUserName</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False" for_status="True" update_always="True">
+  <description>Comment about the last transition</description>
+  <default>
+   
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False" for_status="False" update_always="False">
+  <description>Provides access to workflow history</description>
+  <default>
+   
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False" for_status="True" update_always="True">
+  <description>When the previous transition was performed</description>
+  <default>
+   
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+</dc-workflow>

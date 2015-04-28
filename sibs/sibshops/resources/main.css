@@ -1,0 +1,11 @@
+.sibshop-listing-description {
+    margin-bottom: 20px;
+}
+
+.sibshop-listing td.Submitted {
+    color: orange;
+}
+
+.sibshop-listing td.Rejected {
+    color: red;
+}

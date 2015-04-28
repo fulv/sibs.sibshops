@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="sibs.sibshops">
+
+    <permission
+        id="sibs.sibshops.AddSibshop"
+        title="sibs.sibshops: Add sibshop"
+        />
+
+    <permission
+        id="sibs.sibshops.ReviewSibshop"
+        title="sibs.sibshops: Review sibshop"
+        />
+
+    <permission
+        id="sibs.sibshops.ViewSibshop"
+        title="sibs.sibshops: View sibshop"
+        />
+
+</configure>

@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+<model xmlns="http://namespaces.plone.org/supermodel/schema"
+       xmlns:form="http://namespaces.plone.org/supermodel/form"
+       xmlns:security="http://namespaces.plone.org/supermodel/security">
+    
+    <schema>
+
+        <!-- field definitions -->
+
+<!--
+<fieldset name="registration"
+   label="Registering Your Sibshop"
+>
+-->
+        <field name="name" type="zope.schema.Text">
+          <description>Your Name</description>
+          <title>Name</title>
+        </field>
+        <field name="agency" type="zope.schema.Text">
+          <description>Agency</description>
+          <title>The Agency Sponsoring Your Sibshop</title>
+        </field>
+        <field name="address1" type="zope.schema.Text">
+          <description>Address 1</description>
+          <title>Address 1</title>
+        </field>
+        <field name="address2" type="zope.schema.Text">
+          <description>Address 2</description>
+          <title>Address 2</title>
+        </field>
+        <field name="city" type="zope.schema.Text">
+          <description>City</description>
+          <title>City</title>
+        </field>
+        <field name="state" type="zope.schema.Choice">
+          <description>State or Province</description>
+          <title>State or Province</title>
+          <vocabulary>sibs.sibshops.vocab.state</vocabulary>
+        </field>
+        <field name="zip" type="zope.schema.Text">
+          <description>Zip or Postal Code</description>
+          <title>Zip or Postal Code</title>
+        </field>
+        <field name="phone" type="zope.schema.Text">
+          <description>Your Phone</description>
+          <title>Your Phone</title>
+        </field>
+        <field name="email" type="zope.schema.Text"
+               form:validator="sibs.sibshops.validators.EmailValidator">
+          <description>Your Email Address</description>
+          <title>Your Email Address</title>
+        </field>
+        <field name="agency_site" type="zope.schema.Text">
+          <description>Sponsoring Agency Website</description>
+          <title>Website For Agency Sponsoring Your Sibshop (optional)</title>
+          <required>False</required>
+        </field>
+        <field name="country" type="zope.schema.Choice">
+          <description>Country</description>
+          <title>Country</title>
+          <vocabulary>sibs.sibshops.vocab.country</vocabulary>
+        </field>
+        <field name="other_country" type="zope.schema.Text">
+          <description>Other Country</description>
+          <title>Other Country</title>
+          <required>False</required>
+        </field>
+        <field name="alt_name" type="zope.schema.Text">
+          <description>Alternate Name</description>
+          <title>Name</title>
+        </field>
+        <field name="alt_phone" type="zope.schema.Text">
+          <description>Alternate Phone</description>
+          <title>Phone</title>
+        </field>
+        <field name="alt_email" type="zope.schema.Text"
+               form:validator="sibs.sibshops.validators.EmailValidator">
+          <description>Alternate Email</description>
+          <title>Email</title>
+        </field>
+<!--
+</fieldset>
+<fieldset name="directory"
+   label="The Sibshop Directory"
+>
+-->
+        <field name="shop_name" type="zope.schema.Text">
+          <description>Sibshop Name</description>
+          <title>Name of Your Sibshop (e.g. Springfield County Sibshops)</title>
+        </field>
+        <field name="sponsor_agency" type="zope.schema.Text">
+          <description>Sponsoring Agency or Agencies</description>
+          <title>Sponsoring Agency or Agencies</title>
+        </field>
+        <field name="sponsor_address1" type="zope.schema.Text">
+          <description>Address 1</description>
+          <title>Address 1</title>
+        </field>
+        <field name="sponsor_address2" type="zope.schema.Text">
+          <description>Address 2</description>
+          <title>Address 2</title>
+        </field>
+        <field name="sponsor_city" type="zope.schema.Text">
+          <description>City</description>
+          <title>City</title>
+        </field>
+        <field name="sponsor_state" type="zope.schema.Choice">
+          <description>State or Province</description>
+          <title>State or Province</title>
+          <vocabulary>sibs.sibshops.vocab.state</vocabulary>
+        </field>
+        <field name="sponsor_zip" type="zope.schema.Text">
+          <description>Zip or Postal Code</description>
+          <title>Zip or Postal Code</title>
+        </field>
+        <field name="sponsor_contact" type="zope.schema.Text">
+          <description>Primary Contact</description>
+          <title>Primary Contact</title>
+        </field>
+        <field name="sponsor_phone" type="zope.schema.Text">
+          <description>Sponsor Phone</description>
+          <title>Phone</title>
+        </field>
+        <field name="sponsor_email" type="zope.schema.Text"
+               form:validator="sibs.sibshops.validators.EmailValidator">
+          <description>Sponsor Email</description>
+          <title>Email (optional)</title>
+          <required>False</required>
+        </field>
+        <field name="mention_site" type="zope.schema.Text">
+          <description>Website Mentioning Your Sibshop</description>
+          <title>Website Mentioning Your Sibshop (optional)</title>
+          <required>False</required>
+        </field>
+        <field name="sponsor_country" type="zope.schema.Choice">
+          <description>Sponsor Country</description>
+          <title>Country</title>
+          <vocabulary>sibs.sibshops.vocab.country</vocabulary>
+        </field>
+        <field name="sponsor_other_country" type="zope.schema.Text">
+          <description>Sponsor Other Country</description>
+          <title>Other Country</title>
+          <required>False</required>
+        </field>
+        <field name="brief_desc" type="zope.schema.Text">
+          <description>Brief Description of Your Sibshop</description>
+          <title>Brief Description of Your Sibshop (optional)</title>
+        </field>
+<!--
+</fieldset>
+<fieldset name="agreements"
+   label="Agreements"
+>
+-->
+        <field name="bool_standards" type="zope.schema.Bool"
+               form:validator="sibs.sibshops.validators.BooleanValidator">
+          <description>Standards of Practice</description>
+          <title>We have reviewed and endorsed the Sibshop Standards of Practice</title>
+        </field>
+        <field name="bool_contact" type="zope.schema.Bool"
+               form:validator="sibs.sibshops.validators.BooleanValidator">
+          <description>Contact Information</description>
+          <title>We understand it will be our responsibility to make changes to contact information regarding our Sibshop.</title>
+        </field>
+        <field name="bool_remove" type="zope.schema.Bool"
+               form:validator="sibs.sibshops.validators.BooleanValidator">
+          <description>Removing Sibshop</description>
+          <title>Further, we understand if we no longer offer Sibshops, it will be our responsibility to notify the Sibling Support Project.</title>
+        </field>
+        <field name="bool_sibgroup" type="zope.schema.Bool"
+               form:validator="sibs.sibshops.validators.BooleanValidator">
+          <description>SibGroup</description>
+          <title>We have joined SibGroup</title>
+        </field>
+        <field name="brief_sibgroup_user" type="zope.schema.Text">
+          <description>Your SibGroup User</description>
+          <title>Name of Facilitator Who Has Joined SibGroup</title>
+        </field>
+<!--
+</fieldset>
+-->
+    </schema>
+    
+</model>

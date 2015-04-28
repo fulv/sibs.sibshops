@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="sibs.sibshops: Add sibshop" acquire="True">
+      <role name="Owner"/>
+      <role name="Manager"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="sibs.sibshops: Review sibshop" acquire="True">
+      <role name="Manager"/>
+      <role name="Reviewer"/>
+      <role name="Editor"/>
+    </permission>
+    <permission name="sibs.sibshops: View sibshop" acquire="True">
+      <role name="Owner"/>
+      <role name="Manager"/>
+      <role name="Member"/>
+    </permission>
+  </permissions>
+</rolemap>
