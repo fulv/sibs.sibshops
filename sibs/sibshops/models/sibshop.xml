@@ -2,7 +2,7 @@
 <model xmlns="http://namespaces.plone.org/supermodel/schema"
        xmlns:form="http://namespaces.plone.org/supermodel/form"
        xmlns:security="http://namespaces.plone.org/supermodel/security">
-    
+
     <schema>
 
         <!-- field definitions -->
@@ -84,10 +84,10 @@
    label="The Sibshop Directory"
 >
 -->
-        <field name="shop_name" type="zope.schema.Text">
+<!--         <field name="shop_name" type="zope.schema.Text">
           <description>Sibshop Name</description>
           <title>Name of Your Sibshop (e.g. Springfield County Sibshops)</title>
-        </field>
+        </field> -->
         <field name="sponsor_agency" type="zope.schema.Text">
           <description>Sponsoring Agency or Agencies</description>
           <title>Sponsoring Agency or Agencies</title>
@@ -142,10 +142,10 @@
           <title>Other Country</title>
           <required>False</required>
         </field>
-        <field name="brief_desc" type="zope.schema.Text">
+<!--         <field name="brief_desc" type="zope.schema.Text">
           <description>Brief Description of Your Sibshop</description>
           <title>Brief Description of Your Sibshop (optional)</title>
-        </field>
+        </field> -->
 <!--
 </fieldset>
 <fieldset name="agreements"
@@ -180,5 +180,5 @@
 </fieldset>
 -->
     </schema>
-    
+
 </model>

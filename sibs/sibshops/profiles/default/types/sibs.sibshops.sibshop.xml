@@ -6,7 +6,7 @@
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Sibshop</property>
   <property name="description"
-    i18n:translate="">This is used to Propose a Sibshop
+    i18n:translate="">This is used to Propose a Sibshop.  Please enter the name of your Sibshop in the "Title" field (the first field).  The Title will be used in listings and search results, so it will be the first thing other users will see.
 </property>
   <property name="icon_expr">string:${portal_url}/document_icon.png</property>
   <property name="factory">sibs.sibshops.sibshop</property>
@@ -20,10 +20,8 @@
   <property name="klass">sibs.sibshops.sibshop.Sibshop</property>
 
   <property name="behaviors">
+     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore" />
      <element value="plone.app.content.interfaces.INameFromTitle" />
-     <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
-     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-     <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
    </property>
 
   <!-- View information -->
