@@ -28,3 +28,15 @@ page for a sibshop content item.
 
 I added a 'NA'/'Not Applicable' entry to the list of states, because
 an empty value is not allowed.
+
+
+Configuring Faceted Navigation
+==============================
+Currently, there is some CSS (probably coming from the theme) that makes the faceted nav configuration page mostly unusable.
+The workaround is:
+Go to the ZMI, and into portal_css, and select the "Development Mode" checkbox, then save.
+
+The configuration page is:  http://sibs.docentims.com/sibshops/configure_faceted.html
+
+This means portal_css must be put in development mode every time you want to make configuration changes, but hopefully this is a rare occurrence.  Once done, you can put turn development mode back off.
+
