@@ -30,7 +30,6 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # Interface class; used to define content-type schema.
 
-# grok.templatedir('sibshop_templates')
 class ISibshop(form.Schema, IImageScaleTraversable):
     """
     This is used to propose a new sibshop and for the board to review and decide.  When approved the sibshop will be available to the campers to sign up
