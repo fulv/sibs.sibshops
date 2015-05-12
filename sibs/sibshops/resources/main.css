@@ -16,6 +16,7 @@ body.portaltype-sibs-sibshops-sibshop article {
 }
 
 body.portaltype-sibs-sibshops-sibshop #content ul li {
+    background: none;
     list-style-type: none;
 }
 
