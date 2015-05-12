@@ -72,6 +72,7 @@
         <field name="agency_site" type="zope.schema.TextLine">
           <description>Sponsoring Agency Website</description>
           <title>Website with Information about Your Sibshop (optional)</title>
+          <default>http://</default>
           <required>False</required>
         </field>
         <field name="alt_name" type="zope.schema.TextLine">
