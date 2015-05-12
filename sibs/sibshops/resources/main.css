@@ -35,3 +35,12 @@ body.portaltype-sibs-sibshops-sibshop #content-core input[type=checkbox] {
 .formHelp {
     display: none;
 }
+
+body.userrole-member .kssattr-formname-++add++sibs.sibshops.sibshop ul.formTabs {
+    display: none;
+}
+
+body.userrole-manager .kssattr-formname-++add++sibs.sibshops.sibshop ul.formTabs {
+    display: block;
+}
+
