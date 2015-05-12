@@ -34,6 +34,7 @@
         <field name="address2" type="zope.schema.TextLine">
           <description>Address 2</description>
           <title>Address 2</title>
+          <required>False</required>
         </field>
         <field name="city" type="zope.schema.TextLine">
           <description>City</description>
