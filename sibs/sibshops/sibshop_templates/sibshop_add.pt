@@ -1,5 +1,26 @@
-<div metal:use-macro="here/main_template/macros/master">
-    <div metal:fill-slot="main">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:block fill-slot="style_slot">
+        <link rel="stylesheet" type="text/css"
+            tal:attributes="href string:${context/@@plone_portal_state/portal_url}/++resource++sibs.sibshops/main.css"
+            />
+    </metal:block>
+</head>
+
+<body>
+  <metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core"
+                        tal:define="widgets nocall:context/@@view;
+                                    toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                    pm context/portal_membership;
+                                    perm nocall:pm/checkPermission">
         <i tal:condition="view/status" tal:content="view/status" />
         <ul tal:condition="view/widgets/errors">
           <li tal:repeat="error view/widgets/errors">
@@ -25,12 +46,14 @@
             <input type="submit" tal:replace="structure action/render"
           /></div>
         </form>
-    </div>
 
     <div class="row">
         <b><div class="error">Required input is missing.</div>
         </b><label for="form-widgets-name">Name</label>
         <input type="text" id="form-widgets-name" name="form.widgets.name"
                class="text-widget required textline-field" value="" />
-      </div>
-</div>
+    </div>
+    </metal:content-core>
+  </metal:content-core>
+</body>
+</html>

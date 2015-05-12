@@ -1,3 +1,5 @@
+import copy
+
 from five import grok
 from plone.directives import dexterity, form
 
@@ -5,11 +7,14 @@ from zope import schema
 from zope.component import getMultiAdapter
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from zope.site.hooks import getSite
 
-from zope.interface import Interface, invariant, Invalid
+from zope.interface import Interface, invariant, Invalid, implements
 
 from z3c.form import group, field
 from z3c.form.interfaces import HIDDEN_MODE
+from z3c.form.interfaces import IAddForm
+
 
 from Products.CMFCore.utils import getToolByName
 
@@ -71,18 +76,41 @@ class Sibshop(dexterity.Item):
     #grok.context(ISibshop)
     #template = ViewPageTemplateFile('sibshop_templates/sibshop_edit.pt')
 
+class ISibshopAddForm(IAddForm):
+    pass
 
-class AddForm(dexterity.AddForm):
+class SibshopAddForm(dexterity.AddForm):
+    implements(ISibshopAddForm)
     grok.name('sibs.sibshops.sibshop')
+    grok.require('sibs.sibshops.AddSibshop')
 
-    label = _(u'Propose a Sibshop')
-    description = _(u'')
+    label = _(u'Register Your Sibshop')
+    description = _(u"""
+                    Please provide the following information.  Some of the
+                    information you provide will be used in the <a
+                    target='_blank'
+                    href='https://www.siblingsupport.org/about-sibshops/find-a-sibshop-near-you'>
+                    online directory of registered Sibshops</a>.
+                    <span class="field_online">The information needed for
+                    the online directory is in blue type.</span>
+                    """)
+    buttons = copy.deepcopy(dexterity.AddForm.buttons)
+    buttons['save'].title = u'Submit'
 
-    #template = ViewPageTemplateFile('sibshop_templates/sibshop_add.pt')
+
+    def nextURL(self):
+        return getSite().absolute_url() + '/about-sibshops/thanks'
+
+
+#    template = ViewPageTemplateFile('sibshop_templates/sibshop_add.pt')
 
     def updateWidgets(self):
         """ """
         dexterity.AddForm.updateWidgets(self)
+
+        self.widgets['IDublinCore.title'].label = u'Name of your Sibshop (e.g., Springfield County Sibshops)'
+        self.widgets['IDublinCore.description'].label = u'Brief description of your Sibshop'
+
         # autofill 'your name' and 'your email' based on login
         #portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
         #member = portal_state.member()

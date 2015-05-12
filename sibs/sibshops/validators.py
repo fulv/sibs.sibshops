@@ -11,7 +11,6 @@ class EmailValidator(SimpleFieldValidator):
     regex = r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
 
     def validate(self, value):
-        print 'EmailValidator.validate: value = %s' % pprint.pformat(value)
         super(EmailValidator, self).validate(value)
         if value:
             if not re.match(self.regex, value) or value.endswith('.'):

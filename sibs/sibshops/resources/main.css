@@ -27,3 +27,11 @@ body.portaltype-sibs-sibshops-sibshop .documentDescription {
 body.portaltype-sibs-sibshops-sibshop #content-core input[type=checkbox] {
     pointer-events: none;
 }
+
+#content .field_online {
+    color: #5981d2;
+}
+
+.formHelp {
+    display: none;
+}

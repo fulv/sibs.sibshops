@@ -58,8 +58,8 @@
           </a>
         </li>
         <li>
-          <a tal:condition="context/agency_site"
-             tal:attributes="href string:context/agency_site"
+          <a target="_blank" tal:condition="context/agency_site"
+             tal:attributes="href string:${context/agency_site}"
              tal:content="context/agency_site">
             [Website with Information about Your Sibshop]
           </a>
@@ -99,7 +99,7 @@
           </li>
           <li><input type="checkbox" checked="checked">
             We have reviewed and endorsed the
-            <a href="https://www.siblingsupport.org/about-sibshops/for-sibshop-providers/sibshops-standards-of-practice">
+            <a target="_blank" href="https://www.siblingsupport.org/about-sibshops/for-sibshop-providers/sibshops-standards-of-practice">
               Sibshop Standards of Practice
             </a>.
           </li>
@@ -113,7 +113,16 @@
           </li>
           <li><input type="checkbox" checked="checked">
             We have joined
-            <a href="https://www.siblingsupport.org/about-sibshops/for-sibshop-providers/sibgroup-a-yahoogroup-for-sibshop-providers">SibGroup</a>.
+            <a target="_blank" href="https://www.siblingsupport.org/about-sibshops/for-sibshop-providers/sibgroup-a-yahoogroup-for-sibshop-providers">SibGroup</a>.
+          </li>
+          <li>
+            Name of Facilitator who has Joined SibGroup:
+            <span tal:content="context/brief_sibgroup_user"></span>
+          </li>
+          <li>
+            Email Address of Facilitator who has Joined SibGroup:
+            <a tal:attributes="href string:mailto:${context/brief_sibgroup_email}"
+               tal:content="context/brief_sibgroup_email"></a>
           </li>
         </ul>
       </div>
