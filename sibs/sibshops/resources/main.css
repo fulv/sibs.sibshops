@@ -36,11 +36,11 @@ body.portaltype-sibs-sibshops-sibshop #content-core input[type=checkbox] {
     display: none;
 }
 
-body.userrole-member .kssattr-formname-++add++sibs.sibshops.sibshop ul.formTabs {
+body.userrole-member #content form ul.formTabs {
     display: none;
 }
 
-body.userrole-manager .kssattr-formname-++add++sibs.sibshops.sibshop ul.formTabs {
+body.userrole-manager #content form ul.formTabs {
     display: block;
 }
 
