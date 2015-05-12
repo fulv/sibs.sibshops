@@ -30,6 +30,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # Interface class; used to define content-type schema.
 
+# grok.templatedir('sibshop_templates')
 class ISibshop(form.Schema, IImageScaleTraversable):
     """
     This is used to propose a new sibshop and for the board to review and decide.  When approved the sibshop will be available to the campers to sign up
@@ -103,6 +104,10 @@ class AddForm(dexterity.AddForm):
 # You may make this the default view for content objects
 # of this type by uncommenting the grok.name line below or by
 # changing the view class name and template filename to View / view.pt.
+
+class View(grok.View):
+    grok.context(ISibshop)
+    grok.require('zope2.View')
 
 #class SibshopListingView(grok.View):
 #    # available on all context

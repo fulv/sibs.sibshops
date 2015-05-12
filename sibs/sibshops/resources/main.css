@@ -9,3 +9,20 @@
 .sibshop-listing td.Rejected {
     color: red;
 }
+
+body.portaltype-sibs-sibshops-sibshop ul,
+body.portaltype-sibs-sibshops-sibshop article {
+    margin-bottom: 1em;
+}
+
+body.portaltype-sibs-sibshops-sibshop ul li {
+    list-style-type: none;
+}
+
+body.portaltype-sibs-sibshops-sibshop .documentDescription {
+    display: none;
+}
+
+body.portaltype-sibs-sibshops-sibshop #content-core input[type=checkbox] {
+    pointer-events: none;
+}

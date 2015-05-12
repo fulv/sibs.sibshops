@@ -6,12 +6,6 @@
     <schema>
 
         <!-- field definitions -->
-
-<!--
-<fieldset name="registration"
-   label="Registering Your Sibshop"
->
--->
         <field name="name" type="zope.schema.Text">
           <description>Your Name</description>
           <title>Name</title>
@@ -78,16 +72,6 @@
           <description>Alternate Email</description>
           <title>Email</title>
         </field>
-<!--
-</fieldset>
-<fieldset name="directory"
-   label="The Sibshop Directory"
->
--->
-<!--         <field name="shop_name" type="zope.schema.Text">
-          <description>Sibshop Name</description>
-          <title>Name of Your Sibshop (e.g. Springfield County Sibshops)</title>
-        </field> -->
         <field name="sponsor_agency" type="zope.schema.Text">
           <description>Sponsoring Agency or Agencies</description>
           <title>Sponsoring Agency or Agencies</title>
@@ -142,16 +126,6 @@
           <title>Other Country</title>
           <required>False</required>
         </field>
-<!--         <field name="brief_desc" type="zope.schema.Text">
-          <description>Brief Description of Your Sibshop</description>
-          <title>Brief Description of Your Sibshop (optional)</title>
-        </field> -->
-<!--
-</fieldset>
-<fieldset name="agreements"
-   label="Agreements"
->
--->
         <field name="bool_standards" type="zope.schema.Bool"
                form:validator="sibs.sibshops.validators.BooleanValidator">
           <description>Standards of Practice</description>
@@ -176,9 +150,6 @@
           <description>Your SibGroup User</description>
           <title>Name of Facilitator Who Has Joined SibGroup</title>
         </field>
-<!--
-</fieldset>
--->
     </schema>
 
 </model>

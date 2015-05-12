@@ -1,0 +1,124 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:block fill-slot="style_slot">
+        <link rel="stylesheet" type="text/css"
+            tal:attributes="href string:${context/@@plone_portal_state/portal_url}/++resource++sibs.sibshops/main.css"
+            />
+    </metal:block>
+</head>
+
+<body>
+  <metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core"
+                        tal:define="widgets nocall:context/@@view;
+                                    toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                    pm context/portal_membership;
+                                    perm nocall:pm/checkPermission">
+      <ul>
+        <li tal:content="context/sponsor_contact">
+          [Contact Person(s) for your Sibshop]
+        </li>
+        <li tal:content="context/agency">
+          [The Agency Sponsoring Your Sibshop]
+        </li>
+        <li tal:content="context/address1">
+          [Address 1]
+        </li>
+        <li tal:condition="context/address2" tal:content="context/address2">
+          [Address 2]
+        </li>
+        <li>
+          <span class="city" tal:content="context/city">
+            [City]
+          </span>,
+          <span class="state" tal:content="context/state">
+            [State]
+          </span>
+          <span class="zip" tal:content="context/zip">
+            [ZIP]
+          </span>
+        </li>
+        <li tal:content="context/country">
+          [Country]
+        </li>
+        <li tal:content="context/sponsor_phone">
+          [Contact Phone for Your Sibshop]
+        </li>
+        <li>
+          <a tal:attributes="href string:mailto:${context/sponsor_email}"
+             tal:content="context/sponsor_email">
+             [Contact Email Address for Your Sibshop]
+          </a>
+        </li>
+        <li>
+          <a tal:condition="context/agency_site"
+             tal:attributes="href string:context/agency_site"
+             tal:content="context/agency_site">
+            [Website with Information about Your Sibshop]
+          </a>
+        </li>
+      </ul>
+      <article tal:content="context/description">
+        [Brief Description of your Sibshop]
+      </article>
+      <p class="discreet">
+        Information Provided On:
+        <span
+         tal:content="python: toLocalizedTime(context.ModificationDate(),
+                            long_format=0)">
+          [Today's date]
+        </span>
+      </p>
+      <div tal:condition="python:perm('Modify portal content', context)">
+        <ul>
+          <li>Your Name: <span tal:content="context/name"></span>
+          </li>
+          <li>Your Email Address:
+            <a tal:attributes="href string:mailto:${context/email}"
+               tal:content="context/email"></a>
+          </li>
+          <li>Name of Secondary Contact for Your Sibshop:
+            <span tal:content="context/alt_name"></span>
+          </li>
+          <li>Secondary Phone Number for Your Sibshop:
+            <span tal:content="context/alt_phone"></span>
+          </li>
+          <li>Secondary Email Contact for Your Sibshop:
+            <a tal:attributes="href string:mailto:${context/alt_email}"
+               tal:content="context/alt_email"></a>
+          </li>
+          <li>Sponsoring Agency or Agencies:
+            <span tal:content="context/sponsor_agency"></span>
+          </li>
+          <li><input type="checkbox" checked="checked">
+            We have reviewed and endorsed the
+            <a href="https://www.siblingsupport.org/about-sibshops/for-sibshop-providers/sibshops-standards-of-practice">
+              Sibshop Standards of Practice
+            </a>.
+          </li>
+          <li><input type="checkbox" checked="checked">
+            We understand it will be our responsibility to make changes to
+            contact information regarding our Sibshop.
+          </li>
+          <li><input type="checkbox" checked="checked">
+            We understand if we no longer offer Sibshops, it will be our
+            responsibility to notify the Sibling Support Project.
+          </li>
+          <li><input type="checkbox" checked="checked">
+            We have joined
+            <a href="https://www.siblingsupport.org/about-sibshops/for-sibshop-providers/sibgroup-a-yahoogroup-for-sibshop-providers">SibGroup</a>.
+          </li>
+        </ul>
+      </div>
+
+    </metal:content-core>
+  </metal:content-core>
+</body>
+</html>
