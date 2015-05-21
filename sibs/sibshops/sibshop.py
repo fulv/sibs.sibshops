@@ -109,7 +109,7 @@ class SibshopAddForm(dexterity.AddForm):
         dexterity.AddForm.updateWidgets(self)
 
         self.widgets['IDublinCore.title'].label = u'Name of your Sibshop (e.g., Springfield County Sibshops)'
-        self.widgets['IDublinCore.description'].label = u'Brief description of your Sibshop'
+        self.widgets['IDublinCore.description'].label = u'Brief description of your Sibshop (optional)'
 
         # autofill 'your name' and 'your email' based on login
         #portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
