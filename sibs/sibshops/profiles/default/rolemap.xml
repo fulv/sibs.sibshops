@@ -8,8 +8,7 @@
     </permission>
     <permission name="sibs.sibshops: Review sibshop" acquire="True">
       <role name="Manager"/>
-      <role name="Reviewer"/>
-      <role name="Editor"/>
+      <role name="Site Administrator"/>
     </permission>
     <permission name="sibs.sibshops: View sibshop" acquire="True">
       <role name="Owner"/>
