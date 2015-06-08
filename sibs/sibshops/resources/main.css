@@ -32,6 +32,10 @@ body.portaltype-sibs-sibshops-sibshop #content-core input[type=checkbox] {
     color: #5981d2;
 }
 
+#content .field_plain {
+    font-weight: normal;
+}
+
 .formHelp {
     display: none;
 }

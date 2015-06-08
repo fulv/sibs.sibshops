@@ -141,6 +141,12 @@
           <description>Standards of Practice</description>
           <title>We have reviewed and endorsed the Sibshop Standards of Practice</title>
         </field>
+        <field name="facilitator_training" type="zope.schema.Text"
+               form:omitted="false">
+          <description>Efforts to obtain training</description>
+          <title>Please read Standard 10 of the Sibshops Standards of Practice and describe your agency's efforts to obtain training on the Sibshop model. Specifically, please note whether your Sibshop facilitators are first-generation or second-generation facilitators and where and when they received their training. Registering with second-generation facilitators requires prior approval from the Sibling Support Project.</title>
+          <required>True</required>
+        </field>
         <field name="bool_contact" type="zope.schema.Bool"
                form:validator="sibs.sibshops.validators.BooleanValidator">
           <description>Contact Information</description>
