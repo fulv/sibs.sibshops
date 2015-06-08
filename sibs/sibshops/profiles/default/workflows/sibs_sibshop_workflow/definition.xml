@@ -46,7 +46,7 @@
    <guard-role>Owner</guard-role>
   </guard>
  </transition>
- <transition transition_id="withdraw" title="withdraw" new_state="Submitted" trigger="USER" before_script="" after_script="">
+ <transition transition_id="withdraw" title="withdraw" new_state="Pending" trigger="USER" before_script="" after_script="">
   <description>this allows the board to withdraw a content from a final state.</description>
   <action url="" category="workflow" icon="">withdraw</action>
   <guard>
