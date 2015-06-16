@@ -36,7 +36,7 @@ body.portaltype-sibs-sibshops-sibshop #content-core input[type=checkbox] {
     font-weight: normal;
 }
 
-.formHelp {
+body.portaltype-sibs-sibshops-sibshop .formHelp {
     display: none;
 }
 

@@ -103,6 +103,12 @@
               Sibshop Standards of Practice
             </a>.
           </li>
+          <li>
+            <p>
+              Please read Standard 10 of the Sibshops Standards of Practice and describe your agency's efforts to obtain training on the Sibshop model. Specifically, please note whether your Sibshop facilitators are first-generation or second-generation facilitators and <b>where and when</b> they received their training. <b>Registering with second-generation facilitators requires prior approval from the Sibling Support Project.</b>
+            </p>
+            <span tal:content="context/facilitator_training"></span>
+          </li>
           <li><input type="checkbox" checked="checked">
             We understand it will be our responsibility to make changes to
             contact information regarding our Sibshop.
