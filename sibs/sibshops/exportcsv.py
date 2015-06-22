@@ -73,7 +73,7 @@ def export_as_csv(self):
     fields = self.getCustomViewFields()
 
     vocab = self.listMetaDataFields(False)
-    items = self.queryCatalog({"portal_type":"sibs.sibshops.sibshop"})
+    items = self.queryCatalog(b_size=1000)
 
     # get the fields to grab
     from zope.app.content import queryContentType

@@ -9,7 +9,8 @@ from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from zope.site.hooks import getSite
 
-from zope.interface import Interface, invariant, Invalid, implements
+from zope.interface import Interface, invariant, Invalid, implements, directlyProvides
+from zope.app.content.interfaces import IContentType
 
 from z3c.form import group, field
 from z3c.form.interfaces import HIDDEN_MODE
@@ -48,6 +49,7 @@ class ISibshop(form.Schema, IImageScaleTraversable):
 
     form.model("models/sibshop.xml")
 
+directlyProvides(ISibshop, IContentType)
 
 # Custom content-type class; objects created for this content type will
 # be instances of this class. Use this class to add content-type specific
