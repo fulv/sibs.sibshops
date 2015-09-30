@@ -104,6 +104,7 @@ class CountryVocab(object):
                                  SimpleTerm(value=u'Argentina', title=_(u'Argentina')),
                                  SimpleTerm(value=u'Iceland', title=_(u'Iceland')),
                                  SimpleTerm(value=u'Ireland', title=_(u'Ireland')),
+                                 SimpleTerm(value=u'Trinidad and Tobago', title=_(u'Trinidad and Tobago')),
                                  SimpleTerm(value=u'Other', title=_(u'Other')),
                                  ])
 grok.global_utility(CountryVocab, name=u"sibs.sibshops.vocab.country")
