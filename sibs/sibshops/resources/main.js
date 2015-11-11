@@ -25,7 +25,10 @@ jQuery(function($){
    );
 
   $('form #formfield-form-widgets-facilitator_training label').html(
-      "Please read Standard 10 of the Sibshops Standards of Practice and describe your agency's efforts to obtain training on the Sibshop model. Specifically, please note whether your Sibshop facilitators are first-generation or second-generation facilitators and <b>where and when</b> they received their training. <b>Registering with second-generation facilitators requires prior approval from the Sibling Support Project.</b>"
+      "<b>Training.</b> Please provide the name(s) of facilitator(s) who became first-generation facilitators by attending the Sibling Support Project’s two-day Sibshop Facilitator Training:"
+   );
+  $('form #formfield-form-widgets-facilitator_training').after(
+      '<p><strong><em>Please note:</em></strong> If none of your Sibshop facilitators attended the Sibling Support Project’s two-day Sibshop Facilitator Training please contact us at 206-297-6368 or at <a href="mailto:info@siblingsupport.org">info@siblingsupport.org</a> before proceeding.  <strong>Registering with second-generation facilitators requires prior approval from the Sibling Support Project.</strong></p>'
    );
 });
 
