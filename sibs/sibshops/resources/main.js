@@ -27,7 +27,7 @@ jQuery(function($){
   $('form #formfield-form-widgets-facilitator_training label').html(
       "<b>Training.</b> Please provide the name(s) of facilitator(s) who became first-generation facilitators by attending the Sibling Support Project’s two-day Sibshop Facilitator Training:"
    );
-  $('form #formfield-form-widgets-facilitator_training').after(
+  $('form #formfield-form-widgets-facilitator_training_date').after(
       '<p><strong><em>Please note:</em></strong> If none of your Sibshop facilitators attended the Sibling Support Project’s two-day Sibshop Facilitator Training please contact us at 206-297-6368 or at <a href="mailto:info@siblingsupport.org">info@siblingsupport.org</a> before proceeding.  <strong>Registering with second-generation facilitators requires prior approval from the Sibling Support Project.</strong></p>'
    );
 });
