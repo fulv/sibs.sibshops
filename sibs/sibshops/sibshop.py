@@ -34,6 +34,12 @@ from sibs.sibshops import MessageFactory as _
 from plone.dexterity.browser import edit
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+from plone.indexer.decorator import indexer
+
+import logging
+
+log = logging.getLogger(__name__)
+
 # Interface class; used to define content-type schema.
 
 class ISibshop(form.Schema, IImageScaleTraversable):
@@ -159,3 +165,58 @@ class View(grok.View):
 #                terms.append(term.title)
 #            return ', '.join(terms);
 #        return value
+
+@indexer(ISibshop)
+def searchableIndexer(context):
+    entries = []
+    plain_text_fields = ('Title',
+                         'Description',
+                         'agency_site',
+                         'country',
+                         'zip',
+                         'state',
+                         'city',
+                         'address1',
+                         'address2',
+                         'agency',
+                         'sponsor_contact',
+                         'sponsor_email'
+                         )
+
+    def read(accessor):
+        """
+        Call a class accessor method to give a value for certain Archetypes field.
+        """
+        if type(accessor) is unicode:
+            value = accessor
+        else:
+            try:
+                value = accessor()
+            except:
+                value = ""
+
+        if value is None:
+            value = ""
+
+        return value
+
+    # Concatenate plain text fields as is
+    for f in plain_text_fields:
+        accessor = getattr(context, f)
+        value = read(accessor)
+        entries.append(value)
+
+    # Plone accessor methods assume utf-8
+    def convertToUTF8(text):
+        if type(text) == unicode:
+            return text.encode("utf-8")
+        return text
+
+    entries = [ convertToUTF8(entry) for entry in entries ]
+
+    log.info(' '.join(entries))
+
+    # Concatenate all strings to one text blob
+    return " ".join(entries)
+
+grok.global_adapter(searchableIndexer, name="SearchableText")
