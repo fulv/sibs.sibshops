@@ -12,7 +12,7 @@
   <includeDependencies package="." />
 
   <include file="permissions.zcml" />
-  
+
   <!-- Grok the package to initialise schema interfaces and content classes -->
   <grok:grok package="." />
 
@@ -35,5 +35,11 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+
+  <include package="z3c.jbot" file="meta.zcml" />
+
+  <browser:jbot
+      directory="jbot"
+  />
 
 </configure>
