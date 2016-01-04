@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+    <metal:content-core fill-slot="content-core">
+        <metal:block use-macro="context/folder_listing/macros/content-core">
+            <metal:description fill-slot="description_slot">
+                <div
+                  tal:define="is_a_sibshop python:item_type=='sibs.sibshops.sibshop';
+                              item python:item.getObject()"
+                  tal:condition="is_a_sibshop"
+                  style="margin:0 0 0.5em 2em">
+                    <span tal:content="item/city" />,
+                    <span tal:content="item/state" />
+                    <span tal:content="item/zip" />
+                </div>
+            </metal:description>
+        </metal:block>
+    </metal:content-core>
+
+</body>
+</html>

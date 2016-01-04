@@ -42,4 +42,12 @@
       directory="jbot"
   />
 
+  <browser:page
+    name="sibshops-listing"
+    for="zope.interface.Interface"
+    template="templates/sibshops_listing.pt"
+    permission="zope2.View"
+    />
+
+
 </configure>
