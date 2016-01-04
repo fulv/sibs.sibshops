@@ -43,11 +43,11 @@
   />
 
   <browser:page
-    name="sibshops-listing"
+    name="folder_listing"
     for="zope.interface.Interface"
-    template="templates/sibshops_listing.pt"
+    template="templates/folder_listing.pt"
     permission="zope2.View"
-    />
+  />
 
 
 </configure>
