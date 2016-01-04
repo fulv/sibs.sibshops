@@ -154,21 +154,22 @@
                                 </span>
                             </tal:modified>
 
-                            <metal:description define-slot="description_slot">
-                                <tal:comment replace="nothing">
-                                    Place custom listing info for custom types here
-                                </tal:comment>
-                              <div
-                                tal:define="is_a_sibshop python:item_type=='sibs.sibshops.sibshop';
-                                            item python:item.getObject()"
-                                tal:condition="is_a_sibshop"
-                                style="margin:0 0 0.5em 2em">
-                                  <span tal:content="item/city" />,
-                                  <span tal:content="item/state" />
-                                  <span tal:content="item/zip" />
-                              </div>
-                            </metal:description>
                         </tal:byline>
+
+                        <metal:description define-slot="description_slot">
+                            <tal:comment replace="nothing">
+                                Place custom listing info for custom types here
+                            </tal:comment>
+                          <div
+                            tal:define="is_a_sibshop python:item_type=='sibs.sibshops.sibshop';
+                                        item python:item.getObject()"
+                            tal:condition="is_a_sibshop"
+                            style="margin:0 0 0.5em 2em">
+                              <span tal:content="item/city" />,
+                              <span tal:content="item/state" />
+                              <span tal:content="item/zip" />
+                          </div>
+                        </metal:description>
                     </span>
 
                 </dt>
