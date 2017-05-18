@@ -21,7 +21,7 @@ jQuery(function($){
    );
 
   $('form #formfield-form-widgets-bool_sibgroup label').html(
-      'We have joined <a target="_blank" href="https://www.siblingsupport.org/about-sibshops/for-sibshop-providers/sibgroup-a-yahoogroup-for-sibshop-providers">SibGroup</a>'
+      'We have asked to join the Sibshop Facilitator Forum Facebook group.'
    );
 
   $('form #formfield-form-widgets-facilitator_training label').html(
@@ -29,6 +29,9 @@ jQuery(function($){
    );
   $('form #formfield-form-widgets-facilitator_training_date').after(
       '<p><strong><em>Please note:</em></strong> If none of your Sibshop facilitators attended the Sibling Support Project’s two-day Sibshop Facilitator Training please contact us at 206-297-6368 or at <a href="mailto:info@siblingsupport.org">info@siblingsupport.org</a> before proceeding.  <strong>Registering with second-generation facilitators requires prior approval from the Sibling Support Project.</strong></p>'
+   );
+  $('form #formfield-form-widgets-bool_sibgroup').before(
+      '<p>The Sibshop Facilitator Forum (SFF) is a closed Facebook group JUST for facilitators from registered Sibshops.  <strong>It is a requirement that each registered Sibshop have at least one facilitator who is a member of SFF.</strong>  You can easily request to join <a target="_blank" href="https://www.facebook.com/groups/SibshopFacilitatorForum/">here</a>:</p>'
    );
 });
 

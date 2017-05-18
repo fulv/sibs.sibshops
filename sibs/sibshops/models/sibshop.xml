@@ -176,9 +176,10 @@
         </field>
         <field name="brief_sibgroup_user" type="zope.schema.TextLine">
           <description>Your SibGroup User</description>
-          <title>Name of Facilitator Who Has Joined SibGroup</title>
+          <title>Names of the facilitators from your Sibshop who have asked to join the Sibshop Facilitator Forum Facebook group.</title>
         </field>
-        <field name="brief_sibgroup_email" type="zope.schema.TextLine">
+        <field name="brief_sibgroup_email" type="zope.schema.TextLine"
+               form:omitted="true">
           <description>Your SibGroup User</description>
           <title>Email Address of Facilitator who has Joined SibGroup</title>
         </field>
